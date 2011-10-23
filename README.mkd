@@ -1,0 +1,12 @@
+# boblish
+
+O boblih é um framework de teste de regressão baseado nos estilos de uma página web.
+
+Uma vez que a página tenha sido validada visualmente, é criado o teste que gera e armazena um JSON com todos elementos HTML da página e os estilos aplicados a cada elemento.
+
+Ao rodar o teste novamente no futuro, ele faz a comparação do JSON gerado com o JSON armazenado anteriormente, assim identificando e apontando as divergências de estilos.
+
+O boblish é baseado no PhantomJs, por isso é necessário instalá-lo antes de rodar os testes
+```
+http://code.google.com/p/phantomjs/downloads/list
+```
