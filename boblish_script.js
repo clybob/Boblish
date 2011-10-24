@@ -208,15 +208,17 @@ var Boblish = {
     },
     
     getCompressedValue: function( nodeInspected, property ) {
-        if( !this.stylesCompressed[property] ) {
+        var fullStyle = this.stylesCompressed[property];
+        
+        if( !fullStyle ) {
             return undefined;
         }
         
         var styleValue = [];
         var node = window.getComputedStyle(nodeInspected);
         
-        for( var i=0, len=this.stylesCompressed[property].length; i!==len; i++) {
-            styleValue.push( node.getPropertyValue( this.stylesCompressed[property][i] ) );
+        for( var i=0, len=fullStyle.length; i!==len; i++) {
+            styleValue.push( node.getPropertyValue( fullStyle[i] ) );
         }
         
         return styleValue.join(' ');
