@@ -172,14 +172,10 @@ var Boblish = {
     nodesInformation: [],
 
     inspectNode: function( node ) {
-        if( node.nodeType === 1 ){
-            this.getNodeInformation(node);
-    
-            if( node.hasChildNodes() ) {
-                for( var child=0, len=node.childNodes.length; child!==len; child++) {
-                    this.inspectNode(node.childNodes[child]);
-                }
-            }
+        this.getNodeInformation(node);
+
+        for( var child=0, len=node.children.length; child!==len; child++) {
+            this.inspectNode(node.children[child]);
         }
     },
 
@@ -228,6 +224,7 @@ var Boblish = {
         var node = document.querySelector(selector);
         this.inspectNode( node );
         var result = window.JSON.stringify(this.nodesInformation);
+        
         return result;
     }
 
